@@ -1,4 +1,11 @@
 # Initially taken from Github's Python gitignore file
+adv/LOCAL_Test
+adv/caches
+adv/tests
+adv/TSNE_Scripts/Legacy_caches
+adv/TSNE_Scripts/Legacy_Pictures
+adv/TSNE_Scripts/Pictures
+adv/Distance_Response
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

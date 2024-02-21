@@ -91,6 +91,8 @@ def main():
         datefmt="%m/%d/%Y %H:%M:%S",
         level=logging.INFO if training_args.local_rank in [-1, 0] else logging.WARN,
     )
+    print ('gpu params:','rank:',training_args.local_rank,'devices:',training_args.device,'no gpus',training_args.n_gpu)
+
     logger.warning(
         "Process rank: %s, device: %s, n_gpu: %s, distributed training: %s, 16-bits training: %s",
         training_args.local_rank,
@@ -163,17 +165,34 @@ def main():
         if training_args.do_train
         else None
     )
+
+    adv_train_dataset = (
+        GlueDataset(data_args, tokenizer=tokenizer, local_rank=training_args.local_rank, num_labels=num_labels,
+                    label_noise=training_args.label_noise, adv=True)
+        if training_args.do_train
+        else None
+    )
+
+
     eval_dataset = (
         GlueDataset(data_args, tokenizer=tokenizer, local_rank=training_args.local_rank, evaluate=True)
         if training_args.do_eval
         else None
     )
 
+    adv_eval_dataset = (
+        GlueDataset(data_args, tokenizer=tokenizer, local_rank=training_args.local_rank, evaluate=True, adv = True)
+        if training_args.do_eval
+        else None
+    )
+
+
     def compute_metrics(p: EvalPrediction) -> Dict:
         if output_mode == "classification":
             preds = np.argmax(p.predictions, axis=1)
         elif output_mode == "regression":
             preds = np.squeeze(p.predictions)
+
         return glue_compute_metrics(data_args.task_name, preds, p.label_ids)
 
     # Initialize our Trainer
@@ -228,4 +247,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

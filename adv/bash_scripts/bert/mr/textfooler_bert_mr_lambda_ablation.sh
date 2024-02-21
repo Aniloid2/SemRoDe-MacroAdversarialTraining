@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=6 python ../../../high_level_at.py --attack_train TextFooler --attack_evaluate TextFooler --dataset 'MR' --model 'BERT' --method 'MMD' --save_space 'Lambda_ablation' --GPU '1.1' --frozen 'True' --eval_method 'last' --epochs 7 --online_epochs 7 --batch_size 64 --data_ratio 0.1 --debug;

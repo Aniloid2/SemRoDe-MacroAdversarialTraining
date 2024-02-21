@@ -1,0 +1,3 @@
+# CUDA_VISIBLE_DEVICES=7 python ../../../high_level_at.py --attack_train TextFooler --attack_evaluate TextFooler --dataset 'SST2' --model 'BERT' --method 'Embedding' --method_type 'DSRM' --method_val 1 --save_space 'DSMR_SST2_BertBase_2' --GPU '1.1' --frozen 'False' --eval_method 'epoch' --epochs 10 --online_epochs 10 --batch_size 32 --data_ratio 0.0  --debug ;
+
+CUDA_VISIBLE_DEVICES=7 python ./high_level_at.py --attack_train TextFooler --attack_evaluate TextFooler --dataset 'MR' --model 'BERT' --method 'Embedding' --method_type 'DSRM' --method_val 1 --save_space 'DSMR_SST2_BertBase_2' --GPU '1.1' --frozen 'False' --eval_method 'epoch' --epochs 10 --online_epochs 10 --batch_size 64 --data_ratio 0.0  --debug ;

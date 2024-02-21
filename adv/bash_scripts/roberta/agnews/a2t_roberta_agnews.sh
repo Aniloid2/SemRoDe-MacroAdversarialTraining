@@ -1,0 +1,6 @@
+CUDA_VISIBLE_DEVICES=5 python ../../../high_level_at.py --attack_train A2T --attack_evaluate TextFooler --dataset 'AGNEWS' --model 'ROBERTA' --method 'AT' --save_space 'A2T_Test_AGNEWS' --GPU '1.1'  --frozen 'False' --eval_method 'epoch' --epochs 3 --online_epochs 3 --batch_size 64 --data_ratio 1  --debug;
+CUDA_VISIBLE_DEVICES=5 python ../../../high_level_at.py --attack_train A2T --attack_evaluate BERTAttack --dataset 'AGNEWS' --model 'ROBERTA' --method 'AT' --save_space 'A2T_Test_AGNEWS' --GPU '1.1'  --frozen 'False' --eval_method 'epoch' --epochs 3 --online_epochs 3 --batch_size 64 --data_ratio 1  --debug;
+CUDA_VISIBLE_DEVICES=5 python ../../../high_level_at.py --attack_train A2T --attack_evaluate PWWS --dataset 'AGNEWS' --model 'ROBERTA' --method 'AT' --save_space 'A2T_Test_AGNEWS' --GPU '1.1'  --frozen 'False' --eval_method 'epoch' --epochs 3 --online_epochs 3 --batch_size 64 --data_ratio 1  --debug;
+CUDA_VISIBLE_DEVICES=5 python ../../../high_level_at.py --attack_train A2T --attack_evaluate TextBugger --dataset 'AGNEWS' --model 'ROBERTA' --method 'AT' --save_space 'A2T_Test_AGNEWS' --GPU '1.1'  --frozen 'False' --eval_method 'epoch' --epochs 3 --online_epochs 3 --batch_size 64 --data_ratio 1  --debug;
+
+ 

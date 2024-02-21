@@ -4,6 +4,7 @@ adv/caches
 adv/tests
 adv/TSNE_Scripts/Legacy_caches
 adv/TSNE_Scripts/Legacy_Pictures
+adv/Legacy_Pictures
 adv/TSNE_Scripts/Pictures
 adv/Distance_Response
 src/transformers_old

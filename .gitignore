@@ -6,6 +6,8 @@ adv/TSNE_Scripts/Legacy_caches
 adv/TSNE_Scripts/Legacy_Pictures
 adv/TSNE_Scripts/Pictures
 adv/Distance_Response
+src/transformers_old
+src/transformers_old.egg-info
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

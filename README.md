@@ -1,28 +1,59 @@
+# BERT and ROBERTA Codebase
 
-Our code works for BERT and ROBERTA. The codebase is compatible for finetuning pretrained BERT/ROBERTA model on MR, AGNEWS and SST2. We provide an example bash file finetune BERT. 
+This codebase is designed for fine-tuning pre-trained BERT and ROBERTA models on MR, AG NEWS, and SST2 datasets. 
 
-The main workspace is in /adv/
+## Quick Start
 
-The main python file is /adv/high_level_at.py
+### Workspace
 
-we provide multiple bash files to run various tests in /adv/bash_scripts/
+- **Main Workspace Directory:** `/adv/`
+- **Main Python File:** `/adv/high_level_at.py`
+- **Bash Scripts for Testing:** `/adv/bash_scripts/`
 
-Since we heavily edit textattack (the trainer.py in /src/TextAttack/textattack/trainer.py) you would need to install our provided version of textattack from local
+### Dependencies
 
-pip install -e /src/TextAttack/textattack
+One crucial modification we made is to the `trainer.py` file found in:
 
-we run Python 3.8.5
+```
+adv/training_utils/trainer_branch.py
+```
 
-we export our conda environment in /adv/MAT.yaml
+To accommodate some changes, you'll need to install our version of TextAttack and TextDefender locally:
 
-a streight forward test:
+```bash
+pip install -e /src/TextAttack/
+pip install -e /src/TextDefender/
+```
 
-CUDA_VISIBLE_DEVICES=0 python high_level_at.py --attack_train TextFooler --attack_evaluate TextFooler --dataset 'MR' --model 'BERT' --method 'MMD' --save_space 'MMD_Test' --GPU '1.1' --frozen 'True' --epochs 7 --data_ratio 0.1 --eval_method 'epoch' --debug;
+In case you want to run the DSRM baseline you'll also need to install higher locally
 
-This will run MMD with counter-fitted embeddings where only 10% (--data_ratio 0.1) of the data is utalised to generated the adversarial dataset. The adversarial data will be saved to /adv/caches/
+```bash
+pip install -e /higher
+```
 
-It will then train for 7 epochs on the BERT model and MR dataset. When finished training, we will run the TextFooler attack on the saved weights for each of the 10 epochs. change --eval_method 'epoch' to --eval_method 'last' to run evaluation only once at the last epoch.
+#### Environment
 
-The test files will be put in /adv/LOCAL_Test/GLUE/MR/BERT/MMD_Test
+- **Python Version:** 3.8.5
+- **Conda Environment Export:** `/adv/MAT.yaml`
 
-R.txt is the file that shows the TextFooler perofrmance on last epoch if --eval_method 'last'. Otherwise if 'epoch' E1.txt, E2.txt etc.
+We also have the individual requirement list in `requirements.txt`
+
+
+
+### Running Tests
+
+A straightforward example test is as follows:
+
+```bash
+CUDA_VISIBLE_DEVICES=5  python ./adv/high_level_at.py --attack_train TextFooler --attack_evaluate TextFooler --dataset 'MR' --model 'BERT' --method 'MMD' --method_type None --method_val 1 --save_space 'mmd_test' --GPU '1.1' --frozen 'True' --eval_method 'epoch' --epochs 7 --online_epochs 7 --batch_size 64 --data_ratio 0.1  --debug;
+```
+
+This command will initiate the MMD with counter-fitted embeddings, where only 10% (`--data_ratio 0.1`) of the dataset is utilized to generate the adversarial dataset. The generated adversarial data will be saved in `/adv/caches/`.
+
+The process includes training for 7 epochs on the BERT model using the MR dataset. After training, the saved weights from each epoch are evaluated using the TextFooler attack. To adjust the evaluation to occur only at the last epoch, change `--eval_method 'epoch'` to `--eval_method 'last'`.
+
+### Results
+
+- The results are stored in: `/adv/LOCAL_Test/GLUE/MR/BERT/MMD_Test`
+- If `--eval_method 'last'` is used, performance metrics by TextFooler for the last epoch are stored in the file `R.txt`.
+- If `--eval_method 'epoch'` is selected, you'll find the results stored as `E1.txt`, `E2.txt`, etc., representing each epoch.

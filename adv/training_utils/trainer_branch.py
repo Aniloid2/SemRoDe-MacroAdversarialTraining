@@ -36,8 +36,7 @@ from datasets import load_dataset, Dataset
 import sys
 import higher
 import time
-# cache_path = '/home/brianformento/security_project/defense/attention_align/ot_alignment_attention/'
-
+ 
 current_file_path = os.path.dirname(os.path.abspath(__file__)) 
 parent_path =  os.path.dirname(os.path.dirname(current_file_path)) 
 sys.path.append(f'{parent_path}/src/TextDefender') 

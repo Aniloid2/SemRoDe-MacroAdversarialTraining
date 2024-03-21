@@ -330,10 +330,7 @@ if __name__ == '__main__':
     import glob
     import pandas as pd
     import math
-    # sys.path.append("/home/brianformento/security_project/defense/attention_align/ot_alignment_attention/adv")
-
-    # origin_folder = "./GLUE/MR/BERT/OT_GL_DMR_AKTTextFooler_ATETextFooler_B1_0_AT0_0_OT0_01_MMD0_0_CRL0_0_DR0_05_E12_LR2e-05_LRP2e-06_NWS0_FT/"
-
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", default="MR", type=str, help="The dataset to use")
     parser.add_argument("--model", default="BERT", type=str, help="The model to use")

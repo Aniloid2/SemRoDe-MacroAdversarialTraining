@@ -57,3 +57,7 @@ The process includes training for 7 epochs on the BERT model using the MR datase
 - The results are stored in: `/adv/LOCAL_Test/GLUE/MR/BERT/MMD_Test`
 - If `--eval_method 'last'` is used, performance metrics by TextFooler for the last epoch are stored in the file `R.txt`.
 - If `--eval_method 'epoch'` is selected, you'll find the results stored as `E1.txt`, `E2.txt`, etc., representing each epoch.
+
+
+### Extra notes
+Most tests were conducted on 1 Nvidia V100 with 32GB of memory. 

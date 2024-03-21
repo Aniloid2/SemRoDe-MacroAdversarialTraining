@@ -61,3 +61,6 @@ The process includes training for 7 epochs on the BERT model using the MR datase
 
 ### Extra notes
 Most tests were conducted on 1 Nvidia V100 with 32GB of memory. 
+
+### TODO
+Hyper parameter to increase, decrease parallelism, at the moment it's set up to generate the adversarial samples on 1 GPU with 8 model instances in parallel, some users may run out of memory.

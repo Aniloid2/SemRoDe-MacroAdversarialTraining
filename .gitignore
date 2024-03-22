@@ -11,6 +11,7 @@ src/transformers_old
 src/transformers_old.egg-info
 src/TextAttack_GIT
 src/TextDefender_GIT
+higher_GIT
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

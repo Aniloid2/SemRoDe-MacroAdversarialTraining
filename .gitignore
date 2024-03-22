@@ -9,7 +9,7 @@ adv/TSNE_Scripts/Pictures
 adv/Distance_Response
 src/transformers_old
 src/transformers_old.egg-info
-
+src/TextAttack_GIT
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

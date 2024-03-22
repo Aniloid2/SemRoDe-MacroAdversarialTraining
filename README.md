@@ -57,7 +57,7 @@ pip install -e higher
 A straightforward example test is as follows:
 
 ```bash
-CUDA_VISIBLE_DEVICES=5  python ./adv/high_level_at.py --attack_train TextFooler --attack_evaluate TextFooler --dataset 'MR' --model 'BERT' --method 'MMD' --method_type None --method_val 1 --save_space 'mmd_test' --GPU '1.1' --frozen 'True' --eval_method 'epoch' --epochs 7 --online_epochs 7 --batch_size 64 --data_ratio 0.1  --debug;
+CUDA_VISIBLE_DEVICES=0  python ./adv/high_level_at.py --attack_train TextFooler --attack_evaluate TextFooler --dataset 'MR' --model 'BERT' --method 'MMD' --method_type None --method_val 1 --save_space 'mmd_test' --GPU '1.1' --frozen 'True' --eval_method 'epoch' --epochs 7 --online_epochs 7 --batch_size 64 --data_ratio 0.1  --debug;
 ```
 
 This command will initiate the MMD with counter-fitted embeddings, where only 10% (`--data_ratio 0.1`) of the dataset is utilized to generate the adversarial dataset. The generated adversarial data will be saved in `/adv/caches/`.

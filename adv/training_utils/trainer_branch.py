@@ -34,7 +34,13 @@ from geomloss import SamplesLoss
 import warnings
 from datasets import load_dataset, Dataset
 import sys
-import higher
+
+try:
+    import higher
+    # Use the package here if needed
+except ImportError:
+    print("higher DSRM will not workk is not installed.")
+
 import time
  
 current_file_path = os.path.dirname(os.path.abspath(__file__)) 

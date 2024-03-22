@@ -18,27 +18,39 @@ One crucial modification we made is to the `trainer.py` file found in:
 adv/training_utils/trainer_branch.py
 ```
 
-To accommodate some changes, you'll need to install our version of TextAttack and TextDefender locally:
+
+#### Environment
+
+- **Python Version:** 3.8.5
+- **Conda Environment Export:** `SemRoDe.yaml`
+
+We also have the individual requirement list in `requirements.txt`
+
+Install with requirements.txt or yml
+
+##### Installation (requirements.txt)
+Create a new conda environment with python 3.8.5 and then:
+```bash
+pip install -r requirements.txt
+```
+
+##### Installation (YML)
+```bash
+conda env create -f SemRoDe.yml --name SemRoDe
+``` 
+
+To accommodate some changes, you'll need to install our version of TextAttack and transformers locally:
 
 ```bash
-pip install -e /src/TextAttack/
-pip install -e /src/TextDefender/
+pip install -e src/TextAttack/
+pip install -e src/transformers/
 ```
 
 In case you want to run the DSRM baseline you'll also need to install higher locally
 
 ```bash
-pip install -e /higher
+pip install -e higher
 ```
-
-#### Environment
-
-- **Python Version:** 3.8.5
-- **Conda Environment Export:** `/adv/MAT.yaml`
-
-We also have the individual requirement list in `requirements.txt`
-
-
 
 ### Running Tests
 

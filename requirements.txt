@@ -114,6 +114,7 @@ semver==3.0.2
 six==1.15.0
 smart-open==6.0.0
 soupsieve==2.3.2.post1
+sentencepiece==0.1.97
 sqlitedict==2.0.0
 tabulate==0.8.10
 tensorboard==2.9.1

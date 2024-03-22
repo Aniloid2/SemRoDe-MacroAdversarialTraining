@@ -39,7 +39,7 @@ try:
     import higher
     # Use the package here if needed
 except ImportError:
-    print("higher DSRM will not workk is not installed.")
+    print("higher is not installed DSRM will not work")
 
 import time
  
